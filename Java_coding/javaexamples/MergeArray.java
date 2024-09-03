@@ -1,6 +1,25 @@
 package javaexamples;
 
+import java.util.Arrays;
+
 public class MergeArray {
+	
+	public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
+        int n1 = arr1.length;
+        int n2 = arr2.length;
+
+        // Create a new array to hold both arrays' elements
+        int[] mergedArray = new int[n1 + n2];
+
+        // Copy both arrays into the mergedArray
+        System.arraycopy(arr1, 0, mergedArray, 0, n1);
+        System.arraycopy(arr2, 0, mergedArray, n1, n2);
+
+        // Sort the merged array
+        Arrays.sort(mergedArray);
+
+        return mergedArray;
+    }
 
 	
 	private double calmedian(int[] num, int[] num1) {
@@ -50,6 +69,10 @@ public class MergeArray {
 		int [] num1= {2,3,6,8};
 		
 		double median=mg.calmedian(num,num1);
+		
+		 int [] merged=mg.mergeSortedArrays(num,num1);
+		 
+		 System.out.println("The merged array is"+Arrays.toString(merged));
 		
 		System.out.println("The median is "+median);
 
